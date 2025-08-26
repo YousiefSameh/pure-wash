@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
+import Navbar from "@/components/shared/Navbar";
 import "./globals.css";
 
 const cairoFont = Cairo({
@@ -17,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cairoFont.className} antialiased`}
+        className={`${cairoFont.className} antialiased min-h-screen h-full`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
