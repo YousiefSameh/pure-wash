@@ -1,0 +1,2774 @@
+{
+  "metadata": {
+    "timestamp": "2025-08-27T17:13:40.647Z",
+    "version": "1.0.0",
+    "tool": "Next.js + MUI Audit Toolkit"
+  },
+  "summary": {
+    "overallScore": 81,
+    "letterGrade": "B",
+    "totalFiles": 19,
+    "totalIssues": 193,
+    "criticalIssues": 20,
+    "categoryScores": {
+      "nextjs": 83,
+      "mui": 55,
+      "accessibility": 70,
+      "responsive": 70,
+      "performance": 90,
+      "security": 90,
+      "quality": 65,
+      "pwa": 100
+    }
+  },
+  "issues": {
+    "byCategory": {
+      "pwa": {
+        "total": 12,
+        "bySeverity": {
+          "error": 7,
+          "warning": 5,
+          "info": 0
+        },
+        "fileCount": 5
+      },
+      "security": {
+        "total": 4,
+        "bySeverity": {
+          "error": 4,
+          "warning": 0,
+          "info": 0
+        },
+        "fileCount": 4
+      },
+      "nextjs": {
+        "total": 5,
+        "bySeverity": {
+          "error": 2,
+          "warning": 3,
+          "info": 0
+        },
+        "fileCount": 3
+      },
+      "quality": {
+        "total": 70,
+        "bySeverity": {
+          "error": 0,
+          "warning": 69,
+          "info": 1
+        },
+        "fileCount": 16
+      },
+      "accessibility": {
+        "total": 12,
+        "bySeverity": {
+          "error": 6,
+          "warning": 6,
+          "info": 0
+        },
+        "fileCount": 4
+      },
+      "mui": {
+        "total": 62,
+        "bySeverity": {
+          "error": 0,
+          "warning": 62,
+          "info": 0
+        },
+        "fileCount": 12
+      },
+      "responsive": {
+        "total": 9,
+        "bySeverity": {
+          "error": 0,
+          "warning": 9,
+          "info": 0
+        },
+        "fileCount": 3
+      },
+      "i18n": {
+        "total": 4,
+        "bySeverity": {
+          "error": 0,
+          "warning": 2,
+          "info": 2
+        },
+        "fileCount": 2
+      },
+      "seo": {
+        "total": 9,
+        "bySeverity": {
+          "error": 1,
+          "warning": 7,
+          "info": 1
+        },
+        "fileCount": 1
+      },
+      "performance": {
+        "total": 2,
+        "bySeverity": {
+          "error": 0,
+          "warning": 2,
+          "info": 0
+        },
+        "fileCount": 2
+      },
+      "structure": {
+        "total": 4,
+        "bySeverity": {
+          "error": 0,
+          "warning": 0,
+          "info": 4
+        },
+        "fileCount": 1
+      }
+    },
+    "bySeverity": {
+      "error": 20,
+      "warning": 165,
+      "info": 8
+    },
+    "topIssues": [
+      {
+        "count": 6,
+        "rule": "a11y/keyboard-interaction",
+        "category": "accessibility",
+        "severity": "error",
+        "message": "Interactive elements must be keyboard accessible"
+      },
+      {
+        "count": 3,
+        "rule": "security/unsafe-eval",
+        "category": "security",
+        "severity": "error",
+        "message": "Unsafe eval() usage detected"
+      },
+      {
+        "count": 3,
+        "rule": "pwa/head-tags",
+        "category": "pwa",
+        "severity": "error",
+        "message": "Missing theme-color meta tag"
+      },
+      {
+        "count": 2,
+        "rule": "pwa/service-worker",
+        "category": "pwa",
+        "severity": "error",
+        "message": "next-pwa not configured in next.config.js"
+      },
+      {
+        "count": 2,
+        "rule": "pwa/workbox-recipes",
+        "category": "pwa",
+        "severity": "error",
+        "message": "No runtime caching strategy configured"
+      },
+      {
+        "count": 2,
+        "rule": "pwa/offline-fallback",
+        "category": "pwa",
+        "severity": "error",
+        "message": "Offline fallback route not configured"
+      },
+      {
+        "count": 2,
+        "rule": "nextjs/ssr-hydration-sanity",
+        "category": "nextjs",
+        "severity": "error",
+        "message": "SSR hydration mismatch detected - non-deterministic values in server-rendered components"
+      },
+      {
+        "count": 1,
+        "rule": "security/headers-config",
+        "category": "security",
+        "severity": "error",
+        "message": "Security headers function not configured"
+      },
+      {
+        "count": 1,
+        "rule": "seo/title-tag",
+        "category": "seo",
+        "severity": "error",
+        "message": "Missing page title tag"
+      },
+      {
+        "count": 48,
+        "rule": "mui/theme-token-enforcement",
+        "category": "mui",
+        "severity": "warning",
+        "message": "Hardcoded colors and spacing detected - use theme tokens instead"
+      },
+      {
+        "count": 25,
+        "rule": "quality/console-usage",
+        "category": "quality",
+        "severity": "warning",
+        "message": "Console statement in production code"
+      },
+      {
+        "count": 23,
+        "rule": "quality/function-complexity",
+        "category": "quality",
+        "severity": "warning",
+        "message": "Function is too complex (high cyclomatic complexity)"
+      },
+      {
+        "count": 19,
+        "rule": "typescript/explicit-returns",
+        "category": "quality",
+        "severity": "warning",
+        "message": "Function should have explicit return type annotation"
+      },
+      {
+        "count": 14,
+        "rule": "mui/responsive-design",
+        "category": "mui",
+        "severity": "warning",
+        "message": "Grid component without responsive breakpoints"
+      },
+      {
+        "count": 9,
+        "rule": "responsive/fixed-dimensions",
+        "category": "responsive",
+        "severity": "warning",
+        "message": "Fixed pixel dimensions may cause responsive issues"
+      },
+      {
+        "count": 5,
+        "rule": "a11y/keyboard-navigation",
+        "category": "accessibility",
+        "severity": "warning",
+        "message": "Interactive element missing keyboard support"
+      },
+      {
+        "count": 4,
+        "rule": "i18n/rtl-support",
+        "category": "i18n",
+        "severity": "warning",
+        "message": "RTL cache not configured for MUI"
+      },
+      {
+        "count": 4,
+        "rule": "seo/og-tags",
+        "category": "seo",
+        "severity": "warning",
+        "message": "Missing Open Graph tag: og:title"
+      },
+      {
+        "count": 3,
+        "rule": "seo/meta-tags",
+        "category": "seo",
+        "severity": "warning",
+        "message": "Missing meta tag: description"
+      },
+      {
+        "count": 3,
+        "rule": "next/client-directive",
+        "category": "nextjs",
+        "severity": "warning",
+        "message": "Unnecessary \"use client\" directive detected"
+      }
+    ],
+    "eslint": {
+      "files": {
+        "src\\app\\layout.tsx": {
+          "path": "src\\app\\layout.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\app\\page.tsx": {
+          "path": "src\\app\\page.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\PWAInstallPrompt.tsx": {
+          "path": "src\\components\\PWAInstallPrompt.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\PWAProvider.tsx": {
+          "path": "src\\components\\PWAProvider.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\CallToAction.tsx": {
+          "path": "src\\components\\home\\CallToAction.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\FuturePlans.tsx": {
+          "path": "src\\components\\home\\FuturePlans.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\Hero.tsx": {
+          "path": "src\\components\\home\\Hero.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\Services.tsx": {
+          "path": "src\\components\\home\\Services.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\Subscription.tsx": {
+          "path": "src\\components\\home\\Subscription.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\home\\WhyPureWash.tsx": {
+          "path": "src\\components\\home\\WhyPureWash.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\providers\\ThemeProvider.tsx": {
+          "path": "src\\components\\providers\\ThemeProvider.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\shared\\Card.tsx": {
+          "path": "src\\components\\shared\\Card.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\shared\\Footer.tsx": {
+          "path": "src\\components\\shared\\Footer.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\shared\\Navbar.tsx": {
+          "path": "src\\components\\shared\\Navbar.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\shared\\SpecialHeading.tsx": {
+          "path": "src\\components\\shared\\SpecialHeading.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\components\\ui\\Button.tsx": {
+          "path": "src\\components\\ui\\Button.tsx",
+          "issues": [],
+          "score": 100
+        },
+        "src\\lib\\theme.ts": {
+          "path": "src\\lib\\theme.ts",
+          "issues": [],
+          "score": 100
+        }
+      },
+      "summary": {
+        "totalFiles": 17,
+        "totalIssues": 0,
+        "issuesBySeverity": {
+          "error": 0,
+          "warning": 0,
+          "info": 0
+        },
+        "issuesByRule": {}
+      }
+    }
+  },
+  "files": {
+    "next.config.ts": {
+      "path": "next.config.ts",
+      "issues": [
+        {
+          "rule": "pwa/service-worker",
+          "category": "pwa",
+          "severity": "error",
+          "message": "next-pwa not configured in next.config.js",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No PWA configuration found",
+          "suggestion": "Install and configure next-pwa with withPWA() wrapper",
+          "file": "next.config.ts"
+        },
+        {
+          "rule": "pwa/service-worker",
+          "category": "pwa",
+          "severity": "warning",
+          "message": "No runtime caching strategy configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No runtimeCaching found",
+          "suggestion": "Add runtimeCaching strategies for offline functionality",
+          "file": "next.config.ts"
+        },
+        {
+          "rule": "security/headers-config",
+          "category": "security",
+          "severity": "error",
+          "message": "Security headers function not configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No headers() function found",
+          "suggestion": "Add async headers() function with security headers",
+          "file": "next.config.ts"
+        },
+        {
+          "rule": "pwa/workbox-recipes",
+          "category": "pwa",
+          "severity": "error",
+          "message": "No runtime caching strategy configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No runtimeCaching found",
+          "suggestion": "Configure runtimeCaching with NetworkFirst, CacheFirst, and StaleWhileRevalidate strategies",
+          "file": "next.config.ts"
+        },
+        {
+          "rule": "pwa/offline-fallback",
+          "category": "pwa",
+          "severity": "error",
+          "message": "Offline fallback route not configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No offline fallback configuration found",
+          "suggestion": "Add offline fallback route: fallbacks: { document: \"/offline\" }",
+          "file": "next.config.ts"
+        }
+      ],
+      "score": 32
+    },
+    "public\\sw.js": {
+      "path": "public\\sw.js",
+      "issues": [
+        {
+          "rule": "nextjs/ssr-hydration-sanity",
+          "category": "nextjs",
+          "severity": "error",
+          "message": "SSR hydration mismatch detected - non-deterministic values in server-rendered components",
+          "line": 145,
+          "column": 22,
+          "excerpt": "dateOfArrival: Date.now(),",
+          "suggestion": "Use stable values for SSR or move non-deterministic logic to useEffect for client-side only rendering",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:145:22"
+        },
+        {
+          "rule": "nextjs/ssr-hydration-sanity",
+          "category": "nextjs",
+          "severity": "error",
+          "message": "Date.now() detected - this causes SSR hydration mismatches",
+          "line": 145,
+          "column": 16,
+          "excerpt": "dateOfArrival: Date.now(),",
+          "suggestion": "Use a stable timestamp or move to useEffect for client-side only rendering",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:145:16"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 26,
+          "column": 3,
+          "excerpt": "console.log('[SW] Installing service worker...');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:26:3"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 30,
+          "column": 9,
+          "excerpt": "console.log('[SW] Caching static assets');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:30:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 34,
+          "column": 9,
+          "excerpt": "console.log('[SW] Static assets cached successfully');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:34:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 38,
+          "column": 9,
+          "excerpt": "console.error('[SW] Failed to cache static assets:', error);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:38:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 45,
+          "column": 3,
+          "excerpt": "console.log('[SW] Activating service worker...');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:45:3"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 52,
+          "column": 15,
+          "excerpt": "console.log('[SW] Deleting old cache:', cacheName);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:52:15"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 59,
+          "column": 9,
+          "excerpt": "console.log('[SW] Service worker activated');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:59:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 84,
+          "column": 11,
+          "excerpt": "console.log('[SW] Serving from cache:', request.url);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:84:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 88,
+          "column": 9,
+          "excerpt": "console.log('[SW] Fetching from network:', request.url);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:88:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 108,
+          "column": 13,
+          "excerpt": "console.error('[SW] Network fetch failed:', error);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:108:13"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 128,
+          "column": 3,
+          "excerpt": "console.log('[SW] Background sync triggered:', event.tag);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:128:3"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 137,
+          "column": 3,
+          "excerpt": "console.log('[SW] Push notification received');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:137:3"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 169,
+          "column": 3,
+          "excerpt": "console.log('[SW] Notification clicked:', event.action);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:169:3"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 192,
+          "column": 5,
+          "excerpt": "console.log('[SW] Syncing offline bookings...');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:192:5"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 196,
+          "column": 5,
+          "excerpt": "console.error('[SW] Booking sync failed:', error);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:196:5"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 188,
+          "column": 11,
+          "excerpt": "// Helper function to sync bookings",
+          "suggestion": "",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:188:11"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 189,
+          "column": 7,
+          "excerpt": "async function syncBookings() {",
+          "suggestion": "",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:189:7"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 202,
+          "column": 7,
+          "excerpt": "async function limitCacheSize(cacheName, maxItems) {",
+          "suggestion": "",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:202:7"
+        },
+        {
+          "rule": "quality/file-size",
+          "category": "quality",
+          "severity": "warning",
+          "message": "File is too large (216 lines)",
+          "line": 1,
+          "column": 1,
+          "excerpt": "File contains 216 lines",
+          "suggestion": "Split large file into smaller, focused modules",
+          "file": "public\\sw.js"
+        },
+        {
+          "rule": "security/unsafe-eval",
+          "category": "security",
+          "severity": "error",
+          "message": "Unsafe eval() usage detected",
+          "line": 213,
+          "column": 1,
+          "excerpt": "setInterval(() => {",
+          "suggestion": "Avoid eval() and use safer alternatives",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:213:1"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 168,
+          "column": 34,
+          "excerpt": "self.addEventListener('notificationclick', (event) => {",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "public\\sw.js",
+          "exactLocation": "public\\sw.js:168:34"
+        },
+        {
+          "rule": "pwa/workbox-recipes",
+          "category": "pwa",
+          "severity": "error",
+          "message": "No runtime caching strategy configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No runtimeCaching found",
+          "suggestion": "Configure runtimeCaching with NetworkFirst, CacheFirst, and StaleWhileRevalidate strategies",
+          "file": "public\\sw.js"
+        },
+        {
+          "rule": "pwa/navigation-preload",
+          "category": "pwa",
+          "severity": "warning",
+          "message": "Navigation preload not enabled",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No navigationPreload.enable() found",
+          "suggestion": "Enable navigation preload for faster page transitions: registration.navigationPreload.enable()",
+          "file": "public\\sw.js"
+        },
+        {
+          "rule": "pwa/offline-fallback",
+          "category": "pwa",
+          "severity": "error",
+          "message": "Offline fallback route not configured",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No offline fallback configuration found",
+          "suggestion": "Add offline fallback route: fallbacks: { document: \"/offline\" }",
+          "file": "public\\sw.js"
+        }
+      ],
+      "score": 0
+    },
+    "src\\lib\\theme.ts": {
+      "path": "src\\lib\\theme.ts",
+      "issues": [
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 6,
+          "column": 14,
+          "excerpt": "main: '#f4c95d',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:6:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 7,
+          "column": 22,
+          "excerpt": "contrastText: '#000000',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:7:22"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 10,
+          "column": 14,
+          "excerpt": "main: '#e67e22',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:10:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 11,
+          "column": 22,
+          "excerpt": "contrastText: '#000000',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:11:22"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 14,
+          "column": 17,
+          "excerpt": "default: '#ffffff',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:14:17"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 15,
+          "column": 15,
+          "excerpt": "paper: '#ffffff',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:15:15"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 18,
+          "column": 17,
+          "excerpt": "primary: '#171717',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:18:17"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 19,
+          "column": 19,
+          "excerpt": "secondary: '#666666',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:19:19"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 27,
+          "column": 26,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:27:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 34,
+          "column": 26,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:34:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 48,
+          "column": 26,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:48:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 60,
+          "column": 26,
+          "excerpt": "borderRadius: '9999px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:60:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 70,
+          "column": 26,
+          "excerpt": "borderRadius: '16px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:70:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 71,
+          "column": 25,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:71:25"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 71,
+          "column": 29,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:71:29"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 71,
+          "column": 35,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:71:35"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 27,
+          "column": 20,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:27:20"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 34,
+          "column": 20,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:34:20"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 48,
+          "column": 20,
+          "excerpt": "'@media (min-width:768px)': {",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\lib\\theme.ts",
+          "exactLocation": "src\\lib\\theme.ts:48:20"
+        },
+        {
+          "rule": "a11y/theme-contrast",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Hardcoded colors detected - contrast validation needed",
+          "line": 1,
+          "column": 1,
+          "excerpt": "Hardcoded colors found: #f4c95d, #000000, #e67e22",
+          "suggestion": "Use theme.palette colors and validate contrast ratios meet WCAG AA (4.5:1 for normal text, 3:1 for large text)",
+          "file": "src\\lib\\theme.ts"
+        },
+        {
+          "rule": "i18n/rtl-support",
+          "category": "i18n",
+          "severity": "warning",
+          "message": "RTL cache not configured for MUI",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No RTL cache configuration found",
+          "suggestion": "Add RTL cache: const cacheRtl = createCache({ key: \"mui-rtl\", stylisPlugins: [rtlPlugin] })",
+          "file": "src\\lib\\theme.ts"
+        },
+        {
+          "rule": "i18n/rtl-support",
+          "category": "i18n",
+          "severity": "info",
+          "message": "Consider adding RTL HTML direction support",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No RTL HTML direction found",
+          "suggestion": "Add <Html dir=\"rtl\"> support for RTL locales",
+          "file": "src\\lib\\theme.ts"
+        }
+      ],
+      "score": 0
+    },
+    "src\\components\\PWAProvider.tsx": {
+      "path": "src\\components\\PWAProvider.tsx",
+      "issues": [
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 22,
+          "column": 11,
+          "excerpt": "console.log('SW registered: ', registration);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:22:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 40,
+          "column": 11,
+          "excerpt": "console.log('SW registration failed: ', registrationError);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:40:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 46,
+          "column": 11,
+          "excerpt": "console.log('Cache updated:', event.data.payload);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:46:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 55,
+          "column": 11,
+          "excerpt": "console.log('Notification permission:', permission);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:55:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 62,
+          "column": 7,
+          "excerpt": "console.log('App is online');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:62:7"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 66,
+          "column": 11,
+          "excerpt": "console.log('Service worker ready - app is back online');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:66:11"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 72,
+          "column": 7,
+          "excerpt": "console.log('App is offline');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:72:7"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 9,
+          "column": 16,
+          "excerpt": "export default function PWAProvider({ children }: PWAProviderProps) {",
+          "suggestion": "",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:9:16"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 61,
+          "column": 5,
+          "excerpt": "const handleOnline = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:61:5"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 71,
+          "column": 5,
+          "excerpt": "const handleOffline = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:71:5"
+        },
+        {
+          "rule": "security/unsafe-eval",
+          "category": "security",
+          "severity": "error",
+          "message": "Unsafe eval() usage detected",
+          "line": 53,
+          "column": 7,
+          "excerpt": "setTimeout(() => {",
+          "suggestion": "Avoid eval() and use safer alternatives",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:53:7"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 61,
+          "column": 5,
+          "excerpt": "const handleOnline = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:61:5"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 71,
+          "column": 5,
+          "excerpt": "const handleOffline = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAProvider.tsx",
+          "exactLocation": "src\\components\\PWAProvider.tsx:71:5"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'PWAProvider' should have explicit return type",
+          "line": 9,
+          "column": 1,
+          "excerpt": "function PWAProvider({ children }: PWAProviderProps) ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\PWAProvider.tsx"
+        },
+        {
+          "rule": "pwa/notification-prompt",
+          "category": "pwa",
+          "severity": "warning",
+          "message": "Notification prompt without user interaction",
+          "line": 1,
+          "column": 1,
+          "excerpt": "Notification permission requested without user interaction",
+          "suggestion": "Gate notification prompts behind user interaction, not on first paint",
+          "file": "src\\components\\PWAProvider.tsx"
+        }
+      ],
+      "score": 0
+    },
+    "src\\components\\PWAInstallPrompt.tsx": {
+      "path": "src\\components\\PWAInstallPrompt.tsx",
+      "issues": [
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 107,
+          "column": 22,
+          "excerpt": "minWidth: '300px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:107:22"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 68,
+          "column": 9,
+          "excerpt": "console.log('User accepted the install prompt');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:68:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 70,
+          "column": 9,
+          "excerpt": "console.log('User dismissed the install prompt');",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:70:9"
+        },
+        {
+          "rule": "quality/console-usage",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Console statement in production code",
+          "line": 76,
+          "column": 7,
+          "excerpt": "console.error('Error during installation:', error);",
+          "suggestion": "Remove console statements or use proper logging library",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:76:7"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 12,
+          "column": 16,
+          "excerpt": "export default function PWAInstallPrompt() {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:12:16"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 34,
+          "column": 5,
+          "excerpt": "const handleBeforeInstallPrompt = (e: Event) => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:34:5"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 45,
+          "column": 5,
+          "excerpt": "const handleAppInstalled = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:45:5"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 80,
+          "column": 3,
+          "excerpt": "const handleClose = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:80:3"
+        },
+        {
+          "rule": "security/unsafe-eval",
+          "category": "security",
+          "severity": "error",
+          "message": "Unsafe eval() usage detected",
+          "line": 39,
+          "column": 7,
+          "excerpt": "setTimeout(() => {",
+          "suggestion": "Avoid eval() and use safer alternatives",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:39:7"
+        },
+        {
+          "rule": "a11y/keyboard-navigation",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Interactive element missing keyboard support",
+          "line": 116,
+          "column": 15,
+          "excerpt": "onClick={handleInstallClick}",
+          "suggestion": "Add keyboard event handlers and tabIndex for accessibility",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:116:15"
+        },
+        {
+          "rule": "a11y/keyboard-navigation",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Interactive element missing keyboard support",
+          "line": 123,
+          "column": 15,
+          "excerpt": "onClick={handleClose}",
+          "suggestion": "Add keyboard event handlers and tabIndex for accessibility",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:123:15"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 26,
+          "column": 5,
+          "excerpt": "const isInWebAppiOS = (window.navigator as Navigator & { standalone?: boolean }).standalone === true;",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:26:5"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 34,
+          "column": 5,
+          "excerpt": "const handleBeforeInstallPrompt = (e: Event) => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:34:5"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 45,
+          "column": 5,
+          "excerpt": "const handleAppInstalled = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:45:5"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function should have explicit return type annotation",
+          "line": 80,
+          "column": 3,
+          "excerpt": "const handleClose = () => {",
+          "suggestion": "",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:80:3"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'PWAInstallPrompt' should have explicit return type",
+          "line": 12,
+          "column": 1,
+          "excerpt": "function PWAInstallPrompt() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\PWAInstallPrompt.tsx"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 116,
+          "column": 15,
+          "excerpt": "onClick={handleInstallClick}",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:116:15"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 123,
+          "column": 15,
+          "excerpt": "onClick={handleClose}",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "src\\components\\PWAInstallPrompt.tsx",
+          "exactLocation": "src\\components\\PWAInstallPrompt.tsx:123:15"
+        }
+      ],
+      "score": 0
+    },
+    "src\\app\\page.tsx": {
+      "path": "src\\app\\page.tsx",
+      "issues": [
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 8,
+          "column": 16,
+          "excerpt": "export default function HomePage() {",
+          "suggestion": "",
+          "file": "src\\app\\page.tsx",
+          "exactLocation": "src\\app\\page.tsx:8:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'HomePage' should have explicit return type",
+          "line": 8,
+          "column": 1,
+          "excerpt": "function HomePage() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\app\\page.tsx"
+        }
+      ],
+      "score": 84
+    },
+    "src\\app\\layout.tsx": {
+      "path": "src\\app\\layout.tsx",
+      "issues": [
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 65,
+          "column": 55,
+          "excerpt": "{ media: '(prefers-color-scheme: light)', color: '#f4c95d' },",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:65:55"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 66,
+          "column": 54,
+          "excerpt": "{ media: '(prefers-color-scheme: dark)', color: '#f4c95d' },",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:66:54"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 94,
+          "column": 55,
+          "excerpt": "<meta name=\"msapplication-TileColor\" content=\"#f4c95d\" />",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:94:55"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 114,
+          "column": 26,
+          "excerpt": "top: '-160px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:114:26"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 115,
+          "column": 26,
+          "excerpt": "left: '900px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:115:26"
+        },
+        {
+          "rule": "seo/meta-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing meta tag: description",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No meta name=\"description\" found",
+          "suggestion": "Add <meta name=\"description\" content=\"Your description here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/meta-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing meta tag: keywords",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No meta name=\"keywords\" found",
+          "suggestion": "Add <meta name=\"keywords\" content=\"Your keywords here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/meta-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing meta tag: author",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No meta name=\"author\" found",
+          "suggestion": "Add <meta name=\"author\" content=\"Your author here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/og-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing Open Graph tag: og:title",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No og:title found",
+          "suggestion": "Add <meta property=\"og:title\" content=\"Your title here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/og-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing Open Graph tag: og:description",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No og:description found",
+          "suggestion": "Add <meta property=\"og:description\" content=\"Your description here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/og-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing Open Graph tag: og:image",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No og:image found",
+          "suggestion": "Add <meta property=\"og:image\" content=\"Your image here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/og-tags",
+          "category": "seo",
+          "severity": "warning",
+          "message": "Missing Open Graph tag: og:type",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No og:type found",
+          "suggestion": "Add <meta property=\"og:type\" content=\"Your type here\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/title-tag",
+          "category": "seo",
+          "severity": "error",
+          "message": "Missing page title tag",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No <title> tag found",
+          "suggestion": "Add <title>Your Page Title</title>",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 79,
+          "column": 16,
+          "excerpt": "export default function RootLayout({",
+          "suggestion": "",
+          "file": "src\\app\\layout.tsx",
+          "exactLocation": "src\\app\\layout.tsx:79:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'RootLayout' should have explicit return type",
+          "line": 79,
+          "column": 1,
+          "excerpt": "function RootLayout({\r\n  children,\r\n}: Readonly<{\r\n  children: React.ReactNode;\r\n}>) ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "modern/error-boundaries",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Missing error boundary implementation",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No error boundary found",
+          "suggestion": "Implement error boundaries to gracefully handle component errors",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "seo/structured-data",
+          "category": "seo",
+          "severity": "info",
+          "message": "Missing structured data markup",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No structured data found",
+          "suggestion": "Add JSON-LD structured data for better SEO and rich snippets",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "pwa/head-tags",
+          "category": "pwa",
+          "severity": "error",
+          "message": "Missing theme-color meta tag",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No theme-color meta tag found",
+          "suggestion": "Add <meta name=\"theme-color\" content=\"#your-color\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "pwa/head-tags",
+          "category": "pwa",
+          "severity": "error",
+          "message": "Missing manifest link tag",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No manifest link found",
+          "suggestion": "Add <link rel=\"manifest\" href=\"/manifest.json\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "pwa/head-tags",
+          "category": "pwa",
+          "severity": "warning",
+          "message": "Missing color-scheme meta tag",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No color-scheme meta tag found",
+          "suggestion": "Add <meta name=\"color-scheme\" content=\"light dark\">",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "i18n/rtl-support",
+          "category": "i18n",
+          "severity": "warning",
+          "message": "RTL cache not configured for MUI",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No RTL cache configuration found",
+          "suggestion": "Add RTL cache: const cacheRtl = createCache({ key: \"mui-rtl\", stylisPlugins: [rtlPlugin] })",
+          "file": "src\\app\\layout.tsx"
+        },
+        {
+          "rule": "i18n/rtl-support",
+          "category": "i18n",
+          "severity": "info",
+          "message": "Consider adding RTL HTML direction support",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No RTL HTML direction found",
+          "suggestion": "Add <Html dir=\"rtl\"> support for RTL locales",
+          "file": "src\\app\\layout.tsx"
+        }
+      ],
+      "score": 0
+    },
+    "src\\components\\ui\\Button.tsx": {
+      "path": "src\\components\\ui\\Button.tsx",
+      "issues": [
+        {
+          "rule": "next/client-directive",
+          "category": "nextjs",
+          "severity": "warning",
+          "message": "Unnecessary \"use client\" directive detected",
+          "line": 1,
+          "column": 1,
+          "excerpt": "\"use client\";",
+          "suggestion": "Remove \"use client\" if component doesn't need client-side features",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:1:1"
+        },
+        {
+          "rule": "next/client-directive",
+          "category": "nextjs",
+          "severity": "warning",
+          "message": "Unnecessary \"use client\" directive",
+          "line": 1,
+          "column": 1,
+          "excerpt": "\"use client\";",
+          "suggestion": "Remove \"use client\" directive as component doesn't use client-side features",
+          "file": "src\\components\\ui\\Button.tsx"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 15,
+          "column": 18,
+          "excerpt": "borderRadius: '9999px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:15:18"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 22,
+          "column": 14,
+          "excerpt": "height: '36px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:22:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 23,
+          "column": 17,
+          "excerpt": "padding: '0 12px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:23:17"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 27,
+          "column": 14,
+          "excerpt": "height: '40px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:27:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 28,
+          "column": 17,
+          "excerpt": "padding: '0 16px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:28:17"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 32,
+          "column": 14,
+          "excerpt": "height: '44px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:32:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 33,
+          "column": 17,
+          "excerpt": "padding: '0 32px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:33:17"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 37,
+          "column": 14,
+          "excerpt": "height: '40px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:37:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 38,
+          "column": 13,
+          "excerpt": "width: '40px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:38:13"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 39,
+          "column": 16,
+          "excerpt": "minWidth: '40px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:39:16"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 61,
+          "column": 14,
+          "excerpt": "border: `1px solid ${theme.palette.divider}`,",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:61:14"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 77,
+          "column": 27,
+          "excerpt": "textUnderlineOffset: '4px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:77:27"
+        },
+        {
+          "rule": "perf/client-heavy",
+          "category": "performance",
+          "severity": "warning",
+          "message": "Too many client components may impact performance",
+          "line": 1,
+          "column": 1,
+          "excerpt": "\"use client\";",
+          "suggestion": "",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:1:1"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 22,
+          "column": 5,
+          "excerpt": "height: '36px',",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:22:5"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 27,
+          "column": 5,
+          "excerpt": "height: '40px',",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:27:5"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 32,
+          "column": 5,
+          "excerpt": "height: '44px',",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:32:5"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 37,
+          "column": 5,
+          "excerpt": "height: '40px',",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:37:5"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 38,
+          "column": 5,
+          "excerpt": "width: '40px',",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\ui\\Button.tsx",
+          "exactLocation": "src\\components\\ui\\Button.tsx:38:5"
+        }
+      ],
+      "score": 0
+    },
+    "src\\components\\shared\\SpecialHeading.tsx": {
+      "path": "src\\components\\shared\\SpecialHeading.tsx",
+      "issues": [
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 5,
+          "column": 16,
+          "excerpt": "export default function SpecialHeading({ title }: { title: string }) {",
+          "suggestion": "",
+          "file": "src\\components\\shared\\SpecialHeading.tsx",
+          "exactLocation": "src\\components\\shared\\SpecialHeading.tsx:5:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'SpecialHeading' should have explicit return type",
+          "line": 5,
+          "column": 1,
+          "excerpt": "function SpecialHeading({ title }: { title: string }) ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\shared\\SpecialHeading.tsx"
+        }
+      ],
+      "score": 84
+    },
+    "src\\components\\shared\\Navbar.tsx": {
+      "path": "src\\components\\shared\\Navbar.tsx",
+      "issues": [
+        {
+          "rule": "next/client-directive",
+          "category": "nextjs",
+          "severity": "warning",
+          "message": "Unnecessary \"use client\" directive detected",
+          "line": 1,
+          "column": 1,
+          "excerpt": "\"use client\";",
+          "suggestion": "Remove \"use client\" if component doesn't need client-side features",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:1:1"
+        },
+        {
+          "rule": "perf/client-heavy",
+          "category": "performance",
+          "severity": "warning",
+          "message": "Too many client components may impact performance",
+          "line": 1,
+          "column": 1,
+          "excerpt": "\"use client\";",
+          "suggestion": "",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:1:1"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 20,
+          "column": 16,
+          "excerpt": "export default function Navbar() {",
+          "suggestion": "",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:20:16"
+        },
+        {
+          "rule": "a11y/keyboard-navigation",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Interactive element missing keyboard support",
+          "line": 97,
+          "column": 13,
+          "excerpt": "onClick={() => setOpen(!open)}",
+          "suggestion": "Add keyboard event handlers and tabIndex for accessibility",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:97:13"
+        },
+        {
+          "rule": "a11y/keyboard-navigation",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Interactive element missing keyboard support",
+          "line": 119,
+          "column": 23,
+          "excerpt": "<IconButton onClick={() => setOpen(false)} aria-label=\"Close menu\">",
+          "suggestion": "Add keyboard event handlers and tabIndex for accessibility",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:119:23"
+        },
+        {
+          "rule": "a11y/keyboard-navigation",
+          "category": "accessibility",
+          "severity": "warning",
+          "message": "Interactive element missing keyboard support",
+          "line": 142,
+          "column": 17,
+          "excerpt": "onClick={() => setOpen(false)}",
+          "suggestion": "Add keyboard event handlers and tabIndex for accessibility",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:142:17"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'Navbar' should have explicit return type",
+          "line": 20,
+          "column": 1,
+          "excerpt": "function Navbar() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\shared\\Navbar.tsx"
+        },
+        {
+          "rule": "quality/import-order",
+          "category": "quality",
+          "severity": "info",
+          "message": "Imports should be ordered: React -> External -> Internal",
+          "line": 1,
+          "column": 1,
+          "excerpt": "Import order not following best practices",
+          "suggestion": "Organize imports: React imports first, then external packages, then internal modules",
+          "file": "src\\components\\shared\\Navbar.tsx"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 97,
+          "column": 13,
+          "excerpt": "onClick={() => setOpen(!open)}",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:97:13"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 119,
+          "column": 23,
+          "excerpt": "<IconButton onClick={() => setOpen(false)} aria-label=\"Close menu\">",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:119:23"
+        },
+        {
+          "rule": "a11y/keyboard-interaction",
+          "category": "accessibility",
+          "severity": "error",
+          "message": "Interactive elements must be keyboard accessible",
+          "line": 142,
+          "column": 17,
+          "excerpt": "onClick={() => setOpen(false)}",
+          "suggestion": "Add keyboard event handlers or make element keyboard accessible",
+          "file": "src\\components\\shared\\Navbar.tsx",
+          "exactLocation": "src\\components\\shared\\Navbar.tsx:142:17"
+        }
+      ],
+      "score": 0
+    },
+    "src\\components\\shared\\Footer.tsx": {
+      "path": "src\\components\\shared\\Footer.tsx",
+      "issues": [
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 10,
+          "column": 24,
+          "excerpt": "height: { xs: \"200px\", md: \"400px\" },",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Footer.tsx",
+          "exactLocation": "src\\components\\shared\\Footer.tsx:10:24"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 10,
+          "column": 37,
+          "excerpt": "height: { xs: \"200px\", md: \"400px\" },",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Footer.tsx",
+          "exactLocation": "src\\components\\shared\\Footer.tsx:10:37"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 5,
+          "column": 16,
+          "excerpt": "export default function Footer() {",
+          "suggestion": "",
+          "file": "src\\components\\shared\\Footer.tsx",
+          "exactLocation": "src\\components\\shared\\Footer.tsx:5:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'Footer' should have explicit return type",
+          "line": 5,
+          "column": 1,
+          "excerpt": "function Footer() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\shared\\Footer.tsx"
+        }
+      ],
+      "score": 68
+    },
+    "src\\components\\shared\\Card.tsx": {
+      "path": "src\\components\\shared\\Card.tsx",
+      "issues": [
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 14,
+          "column": 23,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Card.tsx",
+          "exactLocation": "src\\components\\shared\\Card.tsx:14:23"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 14,
+          "column": 27,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Card.tsx",
+          "exactLocation": "src\\components\\shared\\Card.tsx:14:27"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 14,
+          "column": 33,
+          "excerpt": "boxShadow: '0 4px 4px 0 rgba(0, 0, 0, 0.25)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Card.tsx",
+          "exactLocation": "src\\components\\shared\\Card.tsx:14:33"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 15,
+          "column": 24,
+          "excerpt": "borderRadius: '16px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\shared\\Card.tsx",
+          "exactLocation": "src\\components\\shared\\Card.tsx:15:24"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 5,
+          "column": 16,
+          "excerpt": "export default function Card(props: {",
+          "suggestion": "",
+          "file": "src\\components\\shared\\Card.tsx",
+          "exactLocation": "src\\components\\shared\\Card.tsx:5:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'Card' should have explicit return type",
+          "line": 5,
+          "column": 1,
+          "excerpt": "function Card(props: {\r\n  icon?: StaticImageData;\r\n  title: string;\r\n  description: string;\r\n  price: number;\r\n}) ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\shared\\Card.tsx"
+        }
+      ],
+      "score": 52
+    },
+    "src\\components\\providers\\ThemeProvider.tsx": {
+      "path": "src\\components\\providers\\ThemeProvider.tsx",
+      "issues": [
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 7,
+          "column": 16,
+          "excerpt": "export default function ThemeProvider({",
+          "suggestion": "",
+          "file": "src\\components\\providers\\ThemeProvider.tsx",
+          "exactLocation": "src\\components\\providers\\ThemeProvider.tsx:7:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'ThemeProvider' should have explicit return type",
+          "line": 7,
+          "column": 1,
+          "excerpt": "function ThemeProvider({\r\n  children,\r\n}: {\r\n  children: React.ReactNode;\r\n}) ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\providers\\ThemeProvider.tsx"
+        }
+      ],
+      "score": 84
+    },
+    "src\\components\\home\\WhyPureWash.tsx": {
+      "path": "src\\components\\home\\WhyPureWash.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 71,
+          "column": 9,
+          "excerpt": "<Grid container spacing={6}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\WhyPureWash.tsx",
+          "exactLocation": "src\\components\\home\\WhyPureWash.tsx:71:9"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 73,
+          "column": 13,
+          "excerpt": "<Grid item xs={12} sm={6} md={4} key={reason.id}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\WhyPureWash.tsx",
+          "exactLocation": "src\\components\\home\\WhyPureWash.tsx:73:13"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 31,
+          "column": 16,
+          "excerpt": "export default function WhyPureWashSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\WhyPureWash.tsx",
+          "exactLocation": "src\\components\\home\\WhyPureWash.tsx:31:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'WhyPureWashSection' should have explicit return type",
+          "line": 31,
+          "column": 1,
+          "excerpt": "function WhyPureWashSection() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\home\\WhyPureWash.tsx"
+        }
+      ],
+      "score": 68
+    },
+    "src\\components\\home\\Subscription.tsx": {
+      "path": "src\\components\\home\\Subscription.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 34,
+          "column": 9,
+          "excerpt": "<Grid container spacing={6}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Subscription.tsx",
+          "exactLocation": "src\\components\\home\\Subscription.tsx:34:9"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 36,
+          "column": 13,
+          "excerpt": "<Grid item xs={12} md={6} lg={4} key={service.id}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Subscription.tsx",
+          "exactLocation": "src\\components\\home\\Subscription.tsx:36:13"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 29,
+          "column": 16,
+          "excerpt": "export default function SubscriptionSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\Subscription.tsx",
+          "exactLocation": "src\\components\\home\\Subscription.tsx:29:16"
+        }
+      ],
+      "score": 76
+    },
+    "src\\components\\home\\Services.tsx": {
+      "path": "src\\components\\home\\Services.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 40,
+          "column": 9,
+          "excerpt": "<Grid container spacing={6}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Services.tsx",
+          "exactLocation": "src\\components\\home\\Services.tsx:40:9"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 42,
+          "column": 13,
+          "excerpt": "<Grid item xs={12} md={6} lg={4} key={service.id}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Services.tsx",
+          "exactLocation": "src\\components\\home\\Services.tsx:42:13"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 35,
+          "column": 16,
+          "excerpt": "export default function ServiceSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\Services.tsx",
+          "exactLocation": "src\\components\\home\\Services.tsx:35:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'ServiceSection' should have explicit return type",
+          "line": 35,
+          "column": 1,
+          "excerpt": "function ServiceSection() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\home\\Services.tsx"
+        }
+      ],
+      "score": 68
+    },
+    "src\\components\\home\\Hero.tsx": {
+      "path": "src\\components\\home\\Hero.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 20,
+          "column": 9,
+          "excerpt": "<Grid",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:20:9"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 27,
+          "column": 11,
+          "excerpt": "<Grid item xs={12} md={5}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:27:11"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 62,
+          "column": 11,
+          "excerpt": "<Grid item xs={12} md={7}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:62:11"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 13,
+          "column": 31,
+          "excerpt": "height: 'calc(100vh - 160px)',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:13:31"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 56,
+          "column": 49,
+          "excerpt": "<Button size=\"lg\" sx={{ width: '150px' }}>",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:56:49"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 76,
+          "column": 30,
+          "excerpt": "maxWidth: '700px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:76:30"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded spacing '150px' found. Use theme.spacing() or sx scale instead.",
+          "line": 56,
+          "column": 49,
+          "excerpt": "<Button size=\"lg\" sx={{ width: '150px' }}>",
+          "suggestion": "Replace with theme.spacing(2), theme.spacing(3), or sx={{ m: 2, p: 3 }}",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:56:49"
+        },
+        {
+          "rule": "responsive/fixed-dimensions",
+          "category": "responsive",
+          "severity": "warning",
+          "message": "Fixed pixel dimensions may cause responsive issues",
+          "line": 56,
+          "column": 41,
+          "excerpt": "<Button size=\"lg\" sx={{ width: '150px' }}>",
+          "suggestion": "Use relative units (%, rem, vw) or responsive breakpoints",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:56:41"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 6,
+          "column": 16,
+          "excerpt": "export default function HeroSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\Hero.tsx",
+          "exactLocation": "src\\components\\home\\Hero.tsx:6:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'HeroSection' should have explicit return type",
+          "line": 6,
+          "column": 1,
+          "excerpt": "function HeroSection() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\home\\Hero.tsx"
+        }
+      ],
+      "score": 20
+    },
+    "src\\components\\home\\FuturePlans.tsx": {
+      "path": "src\\components\\home\\FuturePlans.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 33,
+          "column": 11,
+          "excerpt": "<Grid container spacing={{ xs: 2, sm: 3, md: 8 }}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\FuturePlans.tsx",
+          "exactLocation": "src\\components\\home\\FuturePlans.tsx:33:11"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 35,
+          "column": 15,
+          "excerpt": "<Grid item xs={12} sm={6} md={4} key={plan.id}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\FuturePlans.tsx",
+          "exactLocation": "src\\components\\home\\FuturePlans.tsx:35:15"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 23,
+          "column": 41,
+          "excerpt": "borderRadius: { xs: 0, md: '16px' },",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\FuturePlans.tsx",
+          "exactLocation": "src\\components\\home\\FuturePlans.tsx:23:41"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 12,
+          "column": 16,
+          "excerpt": "export default function FuturePlansSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\FuturePlans.tsx",
+          "exactLocation": "src\\components\\home\\FuturePlans.tsx:12:16"
+        },
+        {
+          "rule": "typescript/explicit-returns",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function 'FuturePlansSection' should have explicit return type",
+          "line": 12,
+          "column": 1,
+          "excerpt": "function FuturePlansSection() ",
+          "suggestion": "Add return type annotation: function funcName(): ReturnType",
+          "file": "src\\components\\home\\FuturePlans.tsx"
+        }
+      ],
+      "score": 60
+    },
+    "src\\components\\home\\CallToAction.tsx": {
+      "path": "src\\components\\home\\CallToAction.tsx",
+      "issues": [
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 16,
+          "column": 9,
+          "excerpt": "<Grid",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:16:9"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 21,
+          "column": 11,
+          "excerpt": "<Grid item xs={12} lg={7}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:21:11"
+        },
+        {
+          "rule": "mui/responsive-design",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Grid component without responsive breakpoints",
+          "line": 41,
+          "column": 11,
+          "excerpt": "<Grid item xs={12} lg={5}>",
+          "suggestion": "Add responsive props like xs={12} md={6} for mobile-first design",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:41:11"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 12,
+          "column": 27,
+          "excerpt": "backgroundColor: '#FAF3E0',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:12:27"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 35,
+          "column": 30,
+          "excerpt": "maxWidth: '800px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:35:30"
+        },
+        {
+          "rule": "mui/theme-token-enforcement",
+          "category": "mui",
+          "severity": "warning",
+          "message": "Hardcoded colors and spacing detected - use theme tokens instead",
+          "line": 79,
+          "column": 32,
+          "excerpt": "minWidth: '200px',",
+          "suggestion": "Replace hardcoded colors with theme.palette.* and spacing with theme.spacing() or sx scale",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:79:32"
+        },
+        {
+          "rule": "quality/function-complexity",
+          "category": "quality",
+          "severity": "warning",
+          "message": "Function is too complex (high cyclomatic complexity)",
+          "line": 6,
+          "column": 16,
+          "excerpt": "export default function CallToActionSection() {",
+          "suggestion": "",
+          "file": "src\\components\\home\\CallToAction.tsx",
+          "exactLocation": "src\\components\\home\\CallToAction.tsx:6:16"
+        }
+      ],
+      "score": 44
+    },
+    "public/": {
+      "path": "public/",
+      "issues": [
+        {
+          "rule": "structure/public-folder-organization",
+          "category": "structure",
+          "severity": "info",
+          "message": "Sitemap is missing",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No sitemap found in public folder",
+          "suggestion": "Create sitemap.xml for better SEO",
+          "file": "public/sitemap.xml",
+          "exactLocation": "public/sitemap.xml:1:1"
+        },
+        {
+          "rule": "structure/public-folder-organization",
+          "category": "structure",
+          "severity": "info",
+          "message": "Consider adding 192x192 PWA icon",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No 192x192 icon found",
+          "suggestion": "Add 192x192 icon for better PWA compatibility",
+          "file": "public/",
+          "exactLocation": "public/:1:1"
+        },
+        {
+          "rule": "structure/public-folder-organization",
+          "category": "structure",
+          "severity": "info",
+          "message": "Consider adding 512x512 PWA icon",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No 512x512 icon found",
+          "suggestion": "Add 512x512 icon for better PWA compatibility",
+          "file": "public/",
+          "exactLocation": "public/:1:1"
+        },
+        {
+          "rule": "pwa/maskable-icon",
+          "category": "pwa",
+          "severity": "warning",
+          "message": "Maskable icon not found",
+          "line": 1,
+          "column": 1,
+          "excerpt": "No maskable icon found in public folder",
+          "suggestion": "Add a 512x512 maskable icon with proper naming (e.g., maskable-512.png)",
+          "file": "public/",
+          "exactLocation": "public/:1:1"
+        },
+        {
+          "rule": "structure/public-folder-organization",
+          "category": "structure",
+          "severity": "info",
+          "message": "Large images should be organized in dedicated folders",
+          "line": 1,
+          "column": 1,
+          "excerpt": "Large images found: car-service.png, car-wash.png, cta-car.png, hero-car.png",
+          "suggestion": "Move large images to images/ or assets/ folder for better organization",
+          "file": "public/",
+          "exactLocation": "public/:1:1"
+        }
+      ],
+      "score": 80
+    }
+  },
+  "manualChecks": {
+    "responsive": [],
+    "accessibility": [],
+    "performance": [],
+    "notes": []
+  }
+}
