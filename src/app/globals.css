@@ -1,22 +1,34 @@
-@import "tailwindcss";
-
+/* Global styles for Pure Wash application */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #f4c95d;
-  --secondary: #e67e22;
+  --font-cairo: 'Cairo', Arial, sans-serif;
 }
 
-@theme inline {
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-cairo: var(--font-cairo);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  font-family: var(--font-cairo);
+}
+
+/* Hide scrollbar for webkit browsers while maintaining functionality */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }

@@ -1,11 +1,24 @@
 import Image from "next/image";
+import { Box, Typography } from "@mui/material";
 import ArrowDown from "@/public/heading-special-arrow-down.svg";
 
 export default function SpecialHeading({ title }: { title: string }) {
   return (
-    <div className="text-center flex items-center justify-center flex-col my-6 space-y-6">
-      <h1 className="text-3xl font-bold">{title}</h1>
+    <Box
+      sx={{
+        textAlign: 'center',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        my: 6,
+        gap: 3,
+      }}
+    >
+      <Typography variant="h1" component="h1" fontWeight="bold">
+        {title}
+      </Typography>
       <Image src={ArrowDown} alt="Arrow Down" width={20} height={20} />
-    </div>
+    </Box>
   )
 }
