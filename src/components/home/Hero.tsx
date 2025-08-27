@@ -1,18 +1,11 @@
 import Image from "next/image";
-import BackgroundOverlay from "../../../public/hero-background-overlay.svg";
 import HeroCar from "../../../public/hero-car.png";
 import { Button } from "../ui/Button";
 
 export default function HeroSection() {
   return (
-    <section className="hero relative h-[calc(100vh-160px)] flex items-center justify-center">
-      <Image
-        src={BackgroundOverlay}
-        alt="Hero Background Overlay"
-        width={900}
-        height={900}
-        className="absolute top-[-160px] left-[980px] right-0 bottom-0 -z-10 pointer-events-none select-none"
-      />
+    <section className="hero relative overflow-x-hidden h-[calc(100vh-160px)] flex items-center justify-center">
+      
       <div className="content container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-0">
         <div className="text text-center w-full md:w-fit space-y-5">
           <h1 className="text-3xl md:text-4xl font-bold">
