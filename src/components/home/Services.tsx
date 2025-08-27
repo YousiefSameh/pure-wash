@@ -1,7 +1,7 @@
 import SpecialHeading from "../shared/SpecialHeading";
-import CarWash from "../../../public/car-wash.png";
-import CarService from "../../../public/car-service.png";
-import Vehical from "../../../public/vehical.png";
+import CarWash from "@/public/car-wash.png";
+import CarService from "@/public/car-service.png";
+import Vehical from "@/public/vehical.png";
 import Card from "../shared/Card";
 
 const ServicesData = [

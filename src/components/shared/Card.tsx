@@ -14,7 +14,7 @@ export default function Card(props: {
       {props.icon && (
         <Image src={props.icon} alt={props.title} width={80} height={80} />
       )}
-      <h4 className="text-xl font-bold">{props.title}</h4>
+      <span className="text-xl font-bold">{props.title}</span>
       <p className="text-center">{props.description}</p>
       <span className="font-bold text-xl">{props.price} جنيه</span>
       <Button size="lg">اطلب الأن</Button>

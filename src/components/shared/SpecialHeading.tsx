@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ArrowDown from "../../../public/heading-special-arrow-down.svg";
+import ArrowDown from "@/public/heading-special-arrow-down.svg";
 
 export default function SpecialHeading({ title }: { title: string }) {
   return (

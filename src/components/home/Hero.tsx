@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroCar from "../../../public/hero-car.png";
+import HeroCar from "@/public/hero-car.png";
 import { Button } from "../ui/Button";
 
 export default function HeroSection() {
@@ -22,6 +22,7 @@ export default function HeroSection() {
           <Image
             src={HeroCar}
             alt="Hero Car"
+            loading="eager"
             className="w-64 md:w-[700px] h-auto"
           />
         </div>
