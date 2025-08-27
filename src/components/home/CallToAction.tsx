@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CTAImage from "../../../public/cta-car.png";
+import CTAImage from "@/public/cta-car.png";
 import { Button } from "../ui/Button";
 
 export default function CallToActionSection() {

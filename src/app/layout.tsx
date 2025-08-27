@@ -3,7 +3,7 @@ import { Cairo } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import Image from "next/image";
-import BackgroundOverlay from "../../public/hero-background-overlay.svg";
+import BackgroundOverlay from "@/public/hero-background-overlay.svg";
 import "./globals.css";
 
 const cairoFont = Cairo({
