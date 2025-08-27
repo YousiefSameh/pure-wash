@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://pure-wash.vercel.app'),
+  metadataBase: new URL('https://pure-wash-iota.vercel.app/'),
   alternates: {
     canonical: '/',
     languages: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Pure Wash - خدمات غسيل السيارات",
     description: "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت",
-    url: 'https://pure-wash.vercel.app',
+    url: 'https://pure-wash-iota.vercel.app/',
     siteName: 'Pure Wash',
     images: [
       {
