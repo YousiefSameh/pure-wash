@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
+import Image from "next/image";
+import BackgroundOverlay from "../../public/hero-background-overlay.svg";
 import "./globals.css";
 
 const cairoFont = Cairo({
@@ -18,12 +20,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className="min-h-screen h-full overflow-hidden"
-      suppressHydrationWarning
-    >
-      <body className={`${cairoFont.className} antialiased overflow-hidden`}>
+    <html lang="en" className="min-h-screen h-full" suppressHydrationWarning>
+      <body className={`${cairoFont.className} antialiased overflow-x-hidden`}>
+        <Image
+          src={BackgroundOverlay}
+          alt="Hero Background Overlay"
+          width={900}
+          height={900}
+          className="absolute top-[-160px] left-[900px] right-0 bottom-0 -z-10 pointer-events-none select-none"
+        />
         <Navbar />
         {children}
       </body>
