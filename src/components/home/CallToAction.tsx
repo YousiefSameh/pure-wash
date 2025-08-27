@@ -5,7 +5,7 @@ import { Button } from "../ui/Button";
 export default function CallToActionSection() {
   return (
     <section className="p-8 md:p-16 bg-[#FAF3E0]">
-      <div className="container mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-20">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-20">
         <Image
           src={CTAImage}
           alt="CTA Car Image"
