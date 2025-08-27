@@ -18,10 +18,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${cairoFont.className} antialiased min-h-screen h-full`}
-      >
+    <html
+      lang="en"
+      className="min-h-screen h-full overflow-hidden"
+      suppressHydrationWarning
+    >
+      <body className={`${cairoFont.className} antialiased overflow-hidden`}>
         <Navbar />
         {children}
       </body>

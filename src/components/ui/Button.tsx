@@ -26,8 +26,8 @@ const variantClasses = {
 
 const sizeClasses = {
   default: "h-10 px-4 py-2",
-  sm: "h-9 px-3 rounded-md",
-  lg: "h-11 px-8 rounded-md",
+  sm: "h-9 px-3",
+  lg: "h-11 px-8",
   icon: "h-10 w-10",
 };
 
