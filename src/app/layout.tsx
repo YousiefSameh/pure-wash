@@ -20,14 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="min-h-screen h-full" suppressHydrationWarning>
+    <html lang="ar" className="min-h-screen h-full" suppressHydrationWarning>
       <body className={`${cairoFont.className} antialiased overflow-x-hidden`}>
         <Image
           src={BackgroundOverlay}
           alt="Hero Background Overlay"
           width={900}
           height={900}
-          className="absolute top-[-160px] left-[900px] right-0 bottom-0 -z-10 pointer-events-none select-none"
+          className="absolute top-[-160px] left-[900px] lg:block hidden right-0 bottom-0 -z-10 pointer-events-none select-none"
         />
         <Navbar />
         {children}
