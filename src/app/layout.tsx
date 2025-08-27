@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import ThemeProvider from "@/components/providers/ThemeProvider";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import BackgroundOverlay from "@/public/hero-background-overlay.svg";
 import "./globals.css";
@@ -21,18 +23,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" className="min-h-screen h-full" suppressHydrationWarning>
-      <body className={`${cairoFont.className} antialiased overflow-x-hidden`}>
-        <Image
-          src={BackgroundOverlay}
-          alt="Hero Background Overlay"
-          width={900}
-          height={900}
-          className="absolute top-[-160px] left-[900px] lg:block hidden right-0 bottom-0 -z-10 pointer-events-none select-none"
-        />
-        <Navbar />
-        {children}
-        <Footer />
+    <html lang="ar" suppressHydrationWarning>
+      <body className={cairoFont.className} style={{ margin: 0, padding: 0 }}>
+        <ThemeProvider>
+          <Box
+            sx={{
+              minHeight: '100vh',
+              overflowX: 'hidden',
+              position: 'relative',
+            }}
+          >
+            <Image
+              src={BackgroundOverlay}
+              alt="Hero Background Overlay"
+              width={900}
+              height={900}
+              style={{
+                position: 'absolute',
+                top: '-160px',
+                left: '900px',
+                right: 0,
+                bottom: 0,
+                zIndex: -10,
+                pointerEvents: 'none',
+                userSelect: 'none',
+                display: 'block',
+              }}
+            />
+            <Navbar />
+            {children}
+            <Footer />
+          </Box>
+        </ThemeProvider>
       </body>
     </html>
   );

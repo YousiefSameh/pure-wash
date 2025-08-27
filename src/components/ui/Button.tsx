@@ -1,60 +1,106 @@
+"use client";
+
 import * as React from "react";
-import { cn } from "@/lib/utils";
+import { Button as MuiButton, ButtonProps as MuiButtonProps } from "@mui/material";
+import { styled } from "@mui/material/styles";
 
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?:
-    | "default"
-    | "secondary"
-    | "outline"
-    | "ghost"
-    | "link"
-    | "destructive";
+export type ButtonProps = Omit<MuiButtonProps, 'variant' | 'size'> & {
+  variant?: "default" | "secondary" | "outline" | "ghost" | "link" | "destructive";
   size?: "default" | "sm" | "lg" | "icon";
-  asChild?: boolean;
 };
 
-const variantClasses = {
-  default: "bg-primary text-black hover:bg-secondary",
-  secondary: "bg-secondary text-black hover:bg-primary",
-  outline:
-    "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-  ghost: "hover:bg-accent hover:text-accent-foreground",
-  link: "underline-offset-4 hover:underline text-primary",
-  destructive:
-    "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-};
+const StyledButton = styled(MuiButton, {
+  shouldForwardProp: (prop) => prop !== 'customVariant' && prop !== 'customSize',
+})<{ customVariant?: string; customSize?: string }>(({ theme, customVariant, customSize }) => ({
+  borderRadius: '9999px',
+  textTransform: 'none',
+  fontWeight: 700,
+  transition: 'all 0.2s ease-in-out',
+  
+  // Size styles
+  ...(customSize === 'sm' && {
+    height: '36px',
+    padding: '0 12px',
+    fontSize: '0.875rem',
+  }),
+  ...(customSize === 'default' && {
+    height: '40px',
+    padding: '0 16px',
+    fontSize: '0.875rem',
+  }),
+  ...(customSize === 'lg' && {
+    height: '44px',
+    padding: '0 32px',
+    fontSize: '1rem',
+  }),
+  ...(customSize === 'icon' && {
+    height: '40px',
+    width: '40px',
+    minWidth: '40px',
+    padding: 0,
+  }),
 
-const sizeClasses = {
-  default: "h-10 px-4 py-2",
-  sm: "h-9 px-3",
-  lg: "h-11 px-8",
-  icon: "h-10 w-10",
-};
+  // Variant styles
+  ...(customVariant === 'default' && {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.main,
+    },
+  }),
+  ...(customVariant === 'secondary' && {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+    },
+  }),
+  ...(customVariant === 'outline' && {
+    backgroundColor: 'transparent',
+    color: theme.palette.text.primary,
+    border: `1px solid ${theme.palette.divider}`,
+    '&:hover': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  }),
+  ...(customVariant === 'ghost' && {
+    backgroundColor: 'transparent',
+    color: theme.palette.text.primary,
+    '&:hover': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  }),
+  ...(customVariant === 'link' && {
+    backgroundColor: 'transparent',
+    color: theme.palette.primary.main,
+    textDecoration: 'underline',
+    textUnderlineOffset: '4px',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+  }),
+  ...(customVariant === 'destructive' && {
+    backgroundColor: theme.palette.error.main,
+    color: theme.palette.error.contrastText,
+    '&:hover': {
+      backgroundColor: theme.palette.error.dark,
+    },
+  }),
+}));
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant = "default",
-      size = "default",
-      asChild = false,
-      ...props
-    },
-    ref
-  ) => {
-    const Comp = asChild ? "span" : "button";
+  ({ variant = "default", size = "default", children, ...props }, ref) => {
     return (
-      <Comp
-        className={cn(
-          "inline-flex items-center justify-center rounded-full text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background",
-          variantClasses[variant],
-          sizeClasses[size],
-          className
-        )}
+      <StyledButton
         ref={ref}
+        customVariant={variant}
+        customSize={size}
         {...props}
-      />
+      >
+        {children}
+      </StyledButton>
     );
   }
 );
+
 Button.displayName = "Button";

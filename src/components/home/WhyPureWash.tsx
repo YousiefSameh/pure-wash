@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Box, Container, Typography, Grid } from "@mui/material";
 import ArrowDown from "@/public/heading-special-arrow-down.svg";
 import Logo from "@/public/logo.png";
 import CustomerSuccess from "@/public/customer-success.png";
@@ -29,38 +30,86 @@ const ReasonsData = [
 
 export default function WhyPureWashSection() {
   return (
-    <section className="py-25" dir="rtl">
-      <div className="text-center flex items-center justify-center flex-col my-6 mb-16 space-y-6">
-        <h1 className="text-3xl font-bold">
+    <Box component="section" sx={{ py: 12 }} dir="rtl">
+      <Box
+        sx={{
+          textAlign: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          my: 6,
+          mb: 8,
+          gap: 3,
+        }}
+      >
+        <Typography
+          variant="h1"
+          sx={{
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 1,
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+        >
           ليه Pure Wash
           <Image
             src={Logo}
             alt="Pure Wash Logo"
-            className="rounded-full inline-block mx-1"
             width={60}
             height={60}
+            style={{ borderRadius: '50%' }}
           />
           ؟
-        </h1>
+        </Typography>
         <Image src={ArrowDown} alt="Arrow Down" width={20} height={20} />
-      </div>
+      </Box>
 
-      <div className="container mx-auto mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-        {ReasonsData.map((reason) => (
-          <div className="col flex gap-3" key={reason.id}>
-            <Image
-              src={reason.icon}
-              height={60}
-              className="h-[60px] w-auto"
-              alt={reason.title}
-            />
-            <div className="text flex flex-col gap-2">
-              <span className="text-3xl font-bold">{reason.title}</span>
-              <p>{reason.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+      <Container maxWidth="lg">
+        <Grid container spacing={6}>
+          {ReasonsData.map((reason) => (
+            <Grid item xs={12} sm={6} md={4} key={reason.id}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  gap: 2,
+                  alignItems: 'flex-start',
+                }}
+              >
+                <Image
+                  src={reason.icon}
+                  height={60}
+                  width={60}
+                  alt={reason.title}
+                  style={{ flexShrink: 0 }}
+                />
+                <Box
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 1,
+                  }}
+                >
+                  <Typography
+                    variant="h2"
+                    sx={{
+                      fontWeight: 'bold',
+                      fontSize: { xs: '1.5rem', md: '1.875rem' },
+                    }}
+                  >
+                    {reason.title}
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary">
+                    {reason.description}
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }

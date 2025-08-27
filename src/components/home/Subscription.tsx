@@ -1,3 +1,4 @@
+import { Container, Grid, Box } from "@mui/material";
 import SpecialHeading from "../shared/SpecialHeading";
 import Card from "../shared/Card";
 
@@ -27,13 +28,17 @@ const ServicesData = [
 
 export default function SubscriptionSection() {
   return (
-    <section className="container mx-auto py-25">
-      <SpecialHeading title="الاشتراكات" />
-      <div className="content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {ServicesData.map((service) => {
-          return <Card key={service.id} {...service} />;
-        })}
-      </div>
-    </section>
+    <Box component="section" sx={{ py: 12 }}>
+      <Container maxWidth="lg">
+        <SpecialHeading title="الاشتراكات" />
+        <Grid container spacing={6}>
+          {ServicesData.map((service) => (
+            <Grid item xs={12} md={6} lg={4} key={service.id}>
+              <Card {...service} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }

@@ -1,32 +1,86 @@
 import Image from "next/image";
+import { Box, Container, Typography, Grid } from "@mui/material";
 import HeroCar from "@/public/hero-car.png";
 import { Button } from "../ui/Button";
 
 export default function HeroSection() {
   return (
-    <section className="hero relative overflow-x-hidden h-[calc(100vh-160px)] flex items-center justify-center">
-      
-      <div className="content container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 md:gap-0">
-        <div className="text text-center w-full md:w-fit space-y-5">
-          <h1 className="text-3xl md:text-4xl font-bold">
-            نظافة عربيتك تبدأ من هنا
-          </h1>
-          <p className="text-lg md:text-xl">
-            خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت
-          </p>
-          <Button size="lg" className="w-[150px]">
-            ابدأ الحجز
-          </Button>
-        </div>
-        <div className="image w-full md:w-auto flex justify-center md:justify-end">
-          <Image
-            src={HeroCar}
-            alt="Hero Car"
-            loading="eager"
-            className="w-64 md:w-[700px] h-auto"
-          />
-        </div>
-      </div>
-    </section>
+    <Box
+      component="section"
+      sx={{
+        position: 'relative',
+        overflowX: 'hidden',
+        height: 'calc(100vh - 160px)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Grid 
+          container 
+          spacing={{ xs: 4, md: 0 }}
+          alignItems="center"
+          justifyContent="space-between"
+          sx={{ flexDirection: { xs: 'column-reverse', md: 'row' } }}
+        >
+          <Grid item xs={12} md={5}>
+            <Box
+              sx={{
+                textAlign: { xs: 'center', md: 'left' },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 3,
+              }}
+            >
+              <Typography
+                variant="h1"
+                component="h1"
+                sx={{
+                  fontWeight: 'bold',
+                  fontSize: { xs: '1.875rem', md: '2.5rem' },
+                }}
+              >
+                نظافة عربيتك تبدأ من هنا
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  fontSize: { xs: '1.125rem', md: '1.25rem' },
+                  color: 'text.secondary',
+                }}
+              >
+                خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت
+              </Typography>
+              <Box>
+                <Button size="lg" sx={{ width: '150px' }}>
+                  ابدأ الحجز
+                </Button>
+              </Box>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={7}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: { xs: 'center', md: 'flex-end' },
+                width: '100%',
+              }}
+            >
+              <Image
+                src={HeroCar}
+                alt="Hero Car"
+                loading="eager"
+                style={{
+                  width: '100%',
+                  maxWidth: '700px',
+                  height: 'auto',
+                }}
+              />
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
 }

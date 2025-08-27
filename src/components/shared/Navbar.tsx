@@ -3,113 +3,155 @@
 import Image from "next/image";
 import Logo from "@/public/logo.png";
 import { Button } from "../ui/Button";
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 import { ListIcon, XIcon } from "lucide-react";
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  Container,
+} from "@mui/material";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const menuItems = [
+    { label: "العروض", href: "#offers" },
+    { label: "الخدمات", href: "#services" },
+    { label: "الأشتراكات", href: "#subscriptions" },
+    { label: "التواصل", href: "#contact" },
+  ];
 
   return (
-    <header
-      className={cn(
-        "sticky w-full top-0 left-0 flex items-center justify-center py-4 z-50 h-full transition-colors duration-300",
-        isScrolled ? "bg-white py-2 shadow-2xl" : "bg-transparent"
-      )}
+    <AppBar
+      position="static"
+      elevation={0}
+      sx={{
+        backgroundColor: "transparent",
+        transition: "all 0.3s ease-in-out",
+        py: 2,
+      }}
     >
-      {/* Desktop Navbar */}
-      <nav className="container mx-auto items-center justify-between hidden md:flex">
-        <div className="logo flex items-center gap-2">
-          <Image
-            src={Logo}
-            alt="Pure Wash Logo"
-            width={50}
-            height={50}
-            className="rounded-full"
-          />
-          <h4 className="text-2xl text-black font-bold">Pure Wash</h4>
-        </div>
-        <ul className="flex items-center gap-6">
-          <li className="text-lg hover:text-primary cursor-pointer">العروض</li>
-          <li className="text-lg hover:text-primary cursor-pointer">الخدمات</li>
-          <li className="text-lg hover:text-primary cursor-pointer">
-            الأشتراكات
-          </li>
-          <li className="text-lg hover:text-primary cursor-pointer">التواصل</li>
-          <li>
-            <Button variant="secondary">احجز دلوقتي</Button>
-          </li>
-        </ul>
-      </nav>
-
-      {/* Hamburger Icon */}
-      <div className="w-full flex items-center justify-between md:hidden px-4">
-        <div className="logo flex items-center gap-2">
-          <Image
-            src={Logo}
-            alt="Pure Wash Logo"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
-          <h4 className="text-xl text-black font-bold">Pure Wash</h4>
-        </div>
-        <button
-          className="text-3xl focus:outline-none"
-          onClick={() => setOpen(!open)}
-          aria-label="Open menu"
-        >
-          <span>{open ? <XIcon /> : <ListIcon />}</span>
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 z-50 md:hidden">
-          <div
-            className={cn(
-              "absolute top-0 right-0 w-2/3 h-full bg-white shadow-lg p-6 flex flex-col gap-6 transition-all",
-              open ? "translate-x-0" : "translate-x-full"
-            )}
-          >
-            <button
-              className="self-end text-2xl mb-4"
-              onClick={() => setOpen(false)}
-              aria-label="Close menu"
+      <Container maxWidth="lg">
+        <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 0 } }}>
+          {/* Logo */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Image
+              src={Logo}
+              alt="Pure Wash Logo"
+              width={50}
+              height={50}
+              style={{ borderRadius: "50%" }}
+            />
+            <Typography
+              variant="h4"
+              component="h1"
+              sx={{
+                fontWeight: "bold",
+                color: "black",
+                fontSize: { xs: "1.25rem", md: "1.5rem" },
+              }}
             >
-              <XIcon />
-            </button>
-            <ul className="flex flex-col gap-6 text-right">
-              <li className="text-lg hover:text-primary cursor-pointer">
-                العروض
-              </li>
-              <li className="text-lg hover:text-primary cursor-pointer">
-                الخدمات
-              </li>
-              <li className="text-lg hover:text-primary cursor-pointer">
-                الأشتراكات
-              </li>
-              <li className="text-lg hover:text-primary cursor-pointer">
-                التواصل
-              </li>
-              <li>
-                <Button variant="secondary" className="w-full">
-                  احجز دلوقتي
-                </Button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
-    </header>
+              Pure Wash
+            </Typography>
+          </Box>
+
+          {/* Desktop Menu */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+              gap: 3,
+            }}
+          >
+            {menuItems.map((item) => (
+              <Typography
+                key={item.label}
+                component="a"
+                href={item.href}
+                sx={{
+                  fontSize: "1.125rem",
+                  color: "text.primary",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "color 0.2s ease-in-out",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
+                }}
+              >
+                {item.label}
+              </Typography>
+            ))}
+            <Button variant="secondary">احجز دلوقتي</Button>
+          </Box>
+
+          {/* Mobile Menu Button */}
+          <IconButton
+            sx={{ display: { xs: "flex", md: "none" }, color: "black" }}
+            onClick={() => setOpen(!open)}
+            aria-label="Open menu"
+          >
+            {open ? <XIcon size={24} /> : <ListIcon size={24} />}
+          </IconButton>
+        </Toolbar>
+      </Container>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={() => setOpen(false)}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            width: "66.666667%",
+            p: 3,
+          },
+        }}
+      >
+        <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 2 }}>
+          <IconButton onClick={() => setOpen(false)} aria-label="Close menu">
+            <XIcon size={24} />
+          </IconButton>
+        </Box>
+        <List sx={{ textAlign: "right" }}>
+          {menuItems.map((item) => (
+            <ListItem
+              key={item.label}
+              sx={{ justifyContent: "flex-end", py: 1 }}
+            >
+              <Typography
+                component="a"
+                href={item.href}
+                sx={{
+                  fontSize: "1.125rem",
+                  color: "text.primary",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                  transition: "color 0.2s ease-in-out",
+                  "&:hover": {
+                    color: "primary.main",
+                  },
+                }}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Typography>
+            </ListItem>
+          ))}
+          <ListItem sx={{ justifyContent: "flex-end", mt: 2 }}>
+            <Button variant="secondary" sx={{ width: "100%" }}>
+              احجز دلوقتي
+            </Button>
+          </ListItem>
+        </List>
+      </Drawer>
+    </AppBar>
   );
 }
