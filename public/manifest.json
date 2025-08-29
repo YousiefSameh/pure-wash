@@ -11,22 +11,6 @@
   "lang": "ar",
   "dir": "rtl",
   "categories": ["automotive", "business", "lifestyle"],
-  "screenshots": [
-    {
-      "src": "/screenshots/desktop-1.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Pure Wash Desktop View"
-    },
-    {
-      "src": "/screenshots/mobile-1.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Pure Wash Mobile View"
-    }
-  ],
   "icons": [
     {
       "src": "/icons/icon-72x72.png",

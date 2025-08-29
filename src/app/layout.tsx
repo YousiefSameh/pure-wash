@@ -27,13 +27,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://pure-wash-iota.vercel.app/'),
-  alternates: {
-    canonical: '/',
-    languages: {
-      'ar-EG': '/ar',
-      'en-US': '/en',
-    },
-  },
   openGraph: {
     title: "Pure Wash - خدمات غسيل السيارات",
     description: "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت",

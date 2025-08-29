@@ -1,30 +1,15 @@
-import type { NextConfig } from "next";
-import withPWA from "next-pwa";
+/** @type {import('next').NextConfig} */
+import nextPWA from "next-pwa";
 
-const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
-  },
-  images: {
-    formats: ["image/webp", "image/avif"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-  },
-};
-
-const config = withPWA({
+const withPWA = nextPWA({
   dest: "public",
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === "development",
   sw: "sw.js",
   fallbacks: {
-    // Offline fallback for document requests
     document: "/offline",
-    // Offline fallback for image requests
     image: "",
-    // Offline fallback for audio/video
     audio: "",
     video: "",
     font: "",
@@ -77,19 +62,6 @@ const config = withPWA({
         },
       },
     },
-    // Cache API routes
-    {
-      urlPattern: /^\/api\/.*$/i,
-      handler: "NetworkFirst",
-      options: {
-        cacheName: "apis-cache",
-        expiration: {
-          maxEntries: 16,
-          maxAgeSeconds: 60 * 60 * 24, // 24 hours
-        },
-        networkTimeoutSeconds: 10, // Fallback to cache after 10s
-      },
-    },
     // Cache pages
     {
       urlPattern: /^\/(?!api).*$/i,
@@ -102,7 +74,7 @@ const config = withPWA({
         },
       },
     },
-    // Cache external CDN resources (if you use any)
+    // Cache external CDN resources
     {
       urlPattern: /^https:\/\/cdn\.jsdelivr\.net\/.*/i,
       handler: "StaleWhileRevalidate",
@@ -127,6 +99,18 @@ const config = withPWA({
       },
     },
   ],
-})(nextConfig);
+});
 
-export default config;
+const nextConfig = withPWA({
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  images: {
+    formats: ["image/webp", "image/avif"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  },
+});
+
+export default nextConfig;
