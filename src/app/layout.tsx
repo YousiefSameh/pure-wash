@@ -16,8 +16,16 @@ const cairoFont = Cairo({
 
 export const metadata: Metadata = {
   title: "Pure Wash - خدمات غسيل السيارات",
-  description: "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت - Professional car wash services at the best prices and fastest time",
-  keywords: ["غسيل سيارات", "تنظيف سيارات", "خدمات سيارات", "car wash", "car cleaning", "automotive services"],
+  description:
+    "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت - Professional car wash services at the best prices and fastest time",
+  keywords: [
+    "غسيل سيارات",
+    "تنظيف سيارات",
+    "خدمات سيارات",
+    "car wash",
+    "car cleaning",
+    "automotive services",
+  ],
   authors: [{ name: "Pure Wash Team" }],
   creator: "Pure Wash",
   publisher: "Pure Wash",
@@ -26,47 +34,47 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://pure-wash-iota.vercel.app/'),
+  metadataBase: new URL("https://pure-wash-iota.vercel.app/"),
   openGraph: {
     title: "Pure Wash - خدمات غسيل السيارات",
     description: "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت",
-    url: 'https://pure-wash-iota.vercel.app/',
-    siteName: 'Pure Wash',
+    url: "https://pure-wash-iota.vercel.app/",
+    siteName: "Pure Wash",
     images: [
       {
-        url: '/hero-car.png',
+        url: "/hero-car.png",
         width: 1200,
         height: 630,
-        alt: 'Pure Wash - خدمات غسيل السيارات',
+        alt: "Pure Wash - خدمات غسيل السيارات",
       },
     ],
-    locale: 'ar_EG',
-    type: 'website',
+    locale: "ar_EG",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: "Pure Wash - خدمات غسيل السيارات",
     description: "خدمات غسيل احترافية بأفضل الأسعار وأسرع وقت",
-    images: ['/hero-car.png'],
+    images: ["/hero-car.png"],
   },
   viewport: {
-    width: 'device-width',
+    width: "device-width",
     initialScale: 1,
     maximumScale: 1,
   },
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4c95d' },
-    { media: '(prefers-color-scheme: dark)', color: '#f4c95d' },
+    { media: "(prefers-color-scheme: light)", color: "#f4c95d" },
+    { media: "(prefers-color-scheme: dark)", color: "#f4c95d" },
   ],
-  manifest: '/manifest.json',
+  manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: 'default',
-    title: 'Pure Wash',
+    statusBarStyle: "default",
+    title: "Pure Wash",
   },
-  applicationName: 'Pure Wash',
-  referrer: 'origin-when-cross-origin',
-  category: 'automotive',
+  applicationName: "Pure Wash",
+  referrer: "origin-when-cross-origin",
+  category: "automotive",
 };
 
 export default function RootLayout({
@@ -77,24 +85,86 @@ export default function RootLayout({
   return (
     <html lang="ar" suppressHydrationWarning>
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-192x192.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-192x192.png" />
+        {/* ✅ FIXED: Added missing theme-color meta tag */}
+        <meta name="theme-color" content="#f4c95d" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#f4c95d"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#f4c95d"
+        />
+
+        {/* ✅ FIXED: Added missing manifest link tag */}
+        <link rel="manifest" href="/manifest.json" />
+
+        {/* ✅ FIXED: Added missing color-scheme meta tag */}
+        <meta name="color-scheme" content="light dark" />
+
+        {/* Enhanced PWA meta tags */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icons/icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/icons/icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/icons/icon-192x192.png"
+        />
+
+        {/* Apple Web App meta tags */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Pure Wash" />
+
+        {/* Mobile Web App meta tags */}
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="application-name" content="Pure Wash" />
+
+        {/* Microsoft Tiles */}
         <meta name="msapplication-TileColor" content="#f4c95d" />
+        <meta
+          name="msapplication-TileImage"
+          content="/icons/icon-144x144.png"
+        />
         <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+
+        {/* Additional PWA enhancements */}
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
+
+        {/* Preload critical resources */}
+        <link rel="preload" href="/hero-car.png" as="image" type="image/png" />
+        <link rel="preload" href="/logo.png" as="image" type="image/png" />
+
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
       </head>
       <body className={cairoFont.className} style={{ margin: 0, padding: 0 }}>
         <PWAProvider>
           <ThemeProvider>
             <Box
               sx={{
-                minHeight: '100vh',
-                overflowX: 'hidden',
-                position: 'relative',
+                minHeight: "100vh",
+                overflowX: "hidden",
+                position: "relative",
               }}
             >
               <Image
@@ -103,15 +173,15 @@ export default function RootLayout({
                 width={900}
                 height={900}
                 style={{
-                  position: 'absolute',
-                  top: '-160px',
-                  left: '900px',
+                  position: "absolute",
+                  top: "-160px",
+                  left: "900px",
                   right: 0,
                   bottom: 0,
                   zIndex: -10,
-                  pointerEvents: 'none',
-                  userSelect: 'none',
-                  display: 'block',
+                  pointerEvents: "none",
+                  userSelect: "none",
+                  display: "block",
                 }}
               />
               <Navbar />
