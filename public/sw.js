@@ -382,10 +382,18 @@ async function limitCacheSize(cacheName, maxItems) {
   }
 }
 
-// Periodic cache cleanup with different limits
-setInterval(() => {
-  limitCacheSize(DYNAMIC_CACHE_NAME, 50);
-  limitCacheSize(IMAGES_CACHE_NAME, 100);
-  limitCacheSize(API_CACHE_NAME, 25);
-  limitCacheSize(FONTS_CACHE_NAME, 10);
-}, 300000); // Every 5 minutes
+// Periodic cache cleanup with different limits - using message-based approach for security
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'CLEANUP_CACHE') {
+    Promise.all([
+      limitCacheSize(DYNAMIC_CACHE_NAME, 50),
+      limitCacheSize(IMAGES_CACHE_NAME, 100),
+      limitCacheSize(API_CACHE_NAME, 25),
+      limitCacheSize(FONTS_CACHE_NAME, 10)
+    ]).then(() => {
+      console.log('[SW] Cache cleanup completed');
+    }).catch(error => {
+      console.error('[SW] Cache cleanup failed:', error);
+    });
+  }
+});
