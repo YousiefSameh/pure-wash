@@ -144,7 +144,6 @@ export default function PWAProvider({ children }: PWAProviderProps) {
     // Handle online/offline status
     const handleOnline = () => {
       console.log("[PWA] App is online");
-      // Sync any pending data when back online
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.ready.then(() => {
           console.log("[PWA] Service worker ready - app is back online");
@@ -184,6 +183,24 @@ export default function PWAProvider({ children }: PWAProviderProps) {
     window.addEventListener("online", handleOnline);
     window.addEventListener("offline", handleOffline);
     document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Set up periodic cache cleanup using requestIdleCallback for better performance
+    let cleanupTimeoutId: NodeJS.Timeout;
+    const scheduleCleanup = () => {
+      cleanupTimeoutId = setTimeout(() => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.ready.then((registration) => {
+            if (registration.active) {
+              registration.active.postMessage({ type: 'CLEANUP_CACHE' });
+            }
+          });
+        }
+        scheduleCleanup(); // Schedule next cleanup
+      }, 300000); // Every 5 minutes
+    };
+    
+    // Start cleanup cycle
+    scheduleCleanup();
 
     return () => {
       window.removeEventListener("online", handleOnline);
