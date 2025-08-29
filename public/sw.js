@@ -318,7 +318,7 @@ self.addEventListener('push', (event) => {
     badge: '/icons/icon-72x72.png',
     vibrate: [200, 100, 200],
     data: {
-      dateOfArrival: Date.now(),
+      dateOfArrival: new Date().toISOString(),
       primaryKey: 1
     },
     actions: [
