@@ -174,11 +174,10 @@ export default function RootLayout({
                 height={900}
                 style={{
                   position: "absolute",
-                  top: "-160px",
-                  left: "900px",
+                  top: 0,
                   right: 0,
-                  bottom: 0,
                   zIndex: -10,
+                  margin: "-100px",
                   pointerEvents: "none",
                   userSelect: "none",
                   display: "block",

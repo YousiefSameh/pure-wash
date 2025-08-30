@@ -11,6 +11,7 @@ export default function HeroSection() {
         position: 'relative',
         overflowX: 'hidden',
         height: 'calc(100vh - 160px)',
+        maxHeight: '800px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
